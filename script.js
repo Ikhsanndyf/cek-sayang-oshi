@@ -1,5 +1,4 @@
 // script.js
-// Initialize and store Tom Select instance
 const ts = new TomSelect("#oshi", {
     create: false,
     sortField: {
@@ -14,7 +13,9 @@ const progressBar = document.getElementById("progress");
 const message = document.getElementById("message");
 const percentDisplay = document.getElementById("percent");
 const oshiSelect = document.getElementById("oshi");
+const nameInput = document.getElementById("name");
 const submitButton = document.getElementById("submitButton");
+const inputSection = document.getElementById("inputSection");
 
 const getMessage = (percent, oshi, name) => {
     if (percent === 100) 
@@ -42,7 +43,7 @@ const getMessage = (percent, oshi, name) => {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = document.getElementById("name").value.trim();
+    const name = nameInput.value.trim();
     const oshi = oshiSelect.value;
 
     if (!name || !oshi) {
@@ -62,6 +63,7 @@ form.addEventListener("submit", (e) => {
     const interval = setInterval(() => {
         if (current >= percent) {
             clearInterval(interval);
+
             if (isUnlimited) {
                 progressBar.style.width = "100%";
                 percentDisplay.textContent = "∞";
@@ -71,11 +73,10 @@ form.addEventListener("submit", (e) => {
                 message.textContent = getMessage(percent, oshi, name);
             }
 
-            // Lock field dan ganti tombol
-            oshiSelect.disabled = true;
             ts.disable();
-            document.querySelector('.ts-dropdown').style.display = 'none';
-            oshiSelect.classList.add("bg-gray-200", "cursor-not-allowed");
+            oshiSelect.disabled = true;
+            nameInput.disabled = true;
+            inputSection.style.display = "none";
             submitButton.innerHTML = '<i class="fas fa-redo"></i> Buat Lagi';
         } else {
             progressBar.style.width = current + "%";
@@ -85,16 +86,16 @@ form.addEventListener("submit", (e) => {
     }, 15);
 });
 
-// Reset the form when "Buat Lagi" is clicked
 submitButton.addEventListener("click", (e) => {
     if (submitButton.innerText.includes("Buat Lagi")) {
         e.preventDefault();
-        oshiSelect.disabled = false;
         ts.enable();
-        oshiSelect.classList.remove("bg-gray-200", "cursor-not-allowed");
+        oshiSelect.disabled = false;
+        nameInput.disabled = false;
+        inputSection.style.display = "block";
+        nameInput.value = "";
         oshiSelect.value = "";
         ts.clear();
-        document.getElementById("name").value = "";
         percentDisplay.textContent = "0%";
         progressBar.style.width = "0%";
         message.textContent = "";
