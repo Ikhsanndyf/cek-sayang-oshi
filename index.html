@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cek Seberapa Sayang Kamu ke Oshi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="styles.css"/> <!-- Link ke file CSS -->
+</head>
+<body class="bg-gradient-to-r from-pink-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <div class="flex justify-center mb-4">
+            <i class="fas fa-heart text-pink-500 text-3xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Seberapa Sayang Kamu ke Oshi JKT48?</h1>
+
+        <div id="message" class="lg:text-lg sm:text-xs font-semibold text-gray-700 mb-2 text-center"></div>
+        <div id="percent" class="text-3xl font-bold text-pink-600 mb-4 text-center">0%</div>
+
+        <div class="w-full bg-gray-300 rounded-full h-4 mb-6">
+            <div id="progress" class="bg-gradient-to-r from-pink-400 to-orange-300 h-full rounded-full transition-all duration-300" style="width: 0%;"></div>
+        </div>
+
+        <form id="loveForm" class="flex flex-col gap-4">
+            <select id="oshi" class="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-500" required="required">
+                <option value="">-- Pilih / Ketik Oshi --</option>
+                <option value="Alya">Alya JKT48</option>
+                <option value="Amanda">Amanda JKT48</option>
+                <option value="Christy">Christy JKT48</option>
+                <option value="Anindya">Anindya JKT48</option>
+                <option value="Liaa">Liaa JKT48</option>
+                <option value="Lana">Lana JKT48</option>
+                <option value="Cathy">Cathy JKT48</option>
+                <option value="Elin">Elin JKT48</option>
+                <option value="Chealsea">Chealsea JKT48</option>
+                <option value="Cynthia">Cynthia JKT48</option>
+                <option value="Dena">Dena JKT48</option>
+                <option value="Desy">Desy JKT48</option>
+                <option value="Olla">Olla JKT48</option>
+                <option value="Oniel">Oniel JKT48</option>
+                <option value="Feni">Feni JKT48</option>
+                <option value="Fiony">Fiony JKT48</option>
+                <option value="Freya">Freya JKT48</option>
+                <option value="Fritzy">Fritzy JKT48</option>
+                <option value="Ella">Ella JKT48</option>
+                <option value="Gendis">Gendis JKT48</option>
+                <option value="Gita">Gita JKT48</option>
+                <option value="Gracie">Gracie JKT48</option>
+                <option value="Greesel">Greesel JKT48</option>
+                <option value="Eli">Eli JKT48</option>
+                <option value="Indah">Indah JKT48</option>
+                <option value="Indira">Indira JKT48</option>
+                <option value="Jessi">Jessi JKT48</option>
+                <option value="Lynn">Lynn JKT48</option>
+                <option value="Kathrina">Kathrina JKT48</option>
+                <option value="Lulu">Lulu JKT48</option>
+                <option value="Marsha">Marsha JKT48</option>
+                <option value="Michie">Michie JKT48</option>
+                <option value="Muthe">Muthe JKT48</option>
+                <option value="Raisha">Raisha JKT48</option>
+                <option value="Gracia">Gracia JKT48</option>
+                <option value="Aralie">Aralie JKT48</option>
+                <option value="Delynn">Delynn JKT48</option>
+                <option value="Virgi">Virgi JKT48</option>
+                <option value="Auwia">Auwia JKT48</option>
+                <option value="Rilly">Rilly JKT48</option>
+                <option value="Erine">Erine JKT48</option>
+                <option value="Giaa">Giaa JKT48</option>
+                <option value="Lily">Lily JKT48</option>
+                <option value="Maira">Maira JKT48</option>
+                <option value="Ekin">Ekin JKT48</option>
+                <option value="Trisha">Trisha JKT48</option>
+                <option value="Jemima">Jemima JKT48</option>
+                <option value="Levi">Levi JKT48</option>
+                <option value="Mikaela">Mikaela JKT48</option>
+                <option value="Nayla">Nayla JKT48</option>
+                <option value="Nachia">Nachia JKT48</option>
+                <option value="Intan">Intan JKT48</option>
+                <option value="Oline">Oline JKT48</option>
+                <option value="Regie">Regie JKT48</option>
+                <option value="Ribka">Ribka JKT48</option>
+                <option value="Nala">Nala JKT48</option>
+                <option value="Kimmy">Kimmy JKT48</option>
+                <!-- Tambahkan nama oshi lainnya di sini -->
+            </select>
+
+            <input type="text" id="name" placeholder="Masukkan Nama Kamu" class="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-500" required="required"/>
+            <button type="submit" id="submitButton" class="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 transition duration-300">Cek Sekarang</button>
+        </form>
+
+        <div>
+            <p class="text-center text-gray-400 text-xs mt-6">Made by Snn</p>
+        </div>
+    </div>
+
+    <!-- JS LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+    <script src="script.js"></script> <!-- Link ke file JavaScript -->
+</body>
+</html>
