@@ -52,7 +52,7 @@ form.addEventListener("submit", (e) => {
     }
 
     const normalizedName = name.toLowerCase().replace(/\s+/g, ' ');
-    const isUnlimited = normalizedName === "ikhsan" || normalizedName === "ikhsan nandy";
+    const isUnlimited = (oshi === "Intan" || oshi === "Erine") && (normalizedName === "ikhsan" || normalizedName === "ikhsan nandy");
 
     let percent = isUnlimited ? 100 : Math.floor(Math.random() * 101);
     let current = 0;
